@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkXScadas=self.webpackChunkXScadas||[]).push([[860],{3860:function(e,a,t){t.r(a),t.d(a,{FakeData:function(){return u}});var n=t(359),u=function(e){var a=n.useState(JSON.parse(e.builder)),t=n.useState(e.cell);console.log(a[0],t[0].toJSON());var u=a[0];return n.createElement("div",null,"12345",u.name)}}}]);
