@@ -1,0 +1,353 @@
+{
+    "nodes": [
+        {
+          "config": {
+            "message": "",
+            "property": ""
+          },
+          "id": "n0cqBtcAdW",
+          "meta": {
+            "category":"",
+            "label": "决策",
+            "attrs": {
+                "body": {
+                  "refPoints": "0,10 10,0 20,10 10,20"
+                }
+              },
+            "x": 0,
+            "y": 480
+          },
+          "type": "custom-polygon"
+        },
+        {
+          "config": {
+            "authCredentials": {
+              "passwordTemplate": "{{data.password}}",
+              "usernameTemplate": "{{data.username}}"
+            },
+            "authType": "basic",
+            "bodyTemplate": "w_w",
+            "caCertTemplate": "{{myCaCert}}\n// ----- or -----\n-----BEGIN CERTIFICATE-----\n....",
+            "disableSSLVerification": false,
+            "encodingTemplate": "binary",
+            "errorBehavior": "payloadPath",
+            "errorPath": "data.foo.[0].error",
+            "headerInfo": [
+              {
+                "key": "Accept",
+                "valueTemplate": "application/atom+xml"
+              },
+              {
+                "key": "Accept-Datetime",
+                "valueTemplate": "application/ecmascript"
+              }
+            ],
+            "method": "PUT",
+            "requestEncodingTemplate": "utf8",
+            "responsePath": "data.foo.[0].bar",
+            "timeoutTemplate": "30, {{data.timeout}}",
+            "uriTemplate": "http://foo.com, {{data.foo}}"
+          },
+          "id": "IUARdrrFFH",
+          "meta": {
+            "category": "http",
+            "description": "",
+            "label": "HTTP",
+            "name": "http",
+            "x": 20,
+            "y": 420
+          },
+          "outputIds": [
+          ],
+          "type": "custom-end"
+        },
+        {
+          "config": {
+            "baudRate": 9600,
+            "dataBits": 8,
+            "delimiter": "\\r",
+            "delimiterEncoding": "binary",
+            "encoding": "hex",
+            "parity": "none",
+            "path": "/dev/ROBOT",
+            "rtscts": false,
+            "stopBits": 1,
+            "writeOnOpen": "hello\\r",
+            "writeOnOpenEncoding": "utf8"
+          },
+          "meta": {
+            "category": "serial",
+            "description": "",
+            "label": "Serial",
+            "name": "serial",
+            "parseBy": "delimiter",
+            "uiId": "bJBYX3cE2Z",
+            "x": 280,
+            "y": 40
+          },
+          "outputIds": [],
+          "type": "custom-start"
+        },
+        {
+          "config": {
+            "commandTemplate": "grep -c \"foo\" {{data.filePath}}",
+            "cwdTemplate": "/my/dir or {{myDirectory}}",
+            "detached": true,
+            "encodingTemplate": "utf8",
+            "envsTemplate": [
+              {
+                "keyTemplate": "ww",
+                "valueTemplate": "kk"
+              },
+              {
+                "keyTemplate": "tt",
+                "valueTemplate": "kk"
+              }
+            ],
+            "resultPath": "data.execResult"
+          },
+          "id": "9KMIiuvncJ",
+          "meta": {
+            "category": "runExec",
+            "description": "",
+            "label": "Run Executable",
+            "name": "run-executable",
+            "x": 60,
+            "y": 340
+          },
+          "outputIds": [],
+          "type": "custom-data"
+        },
+        {
+          "config": {
+            "dataPath": "data.predictData",
+            "dataTypeTemplate": "float32",
+            "modelTemplate": "/tmp/myModel.json or {{data.foo}}",
+            "modelTypeTemplate": "layers",
+            "resultPath": "transorFlowResult",
+            "shapePath": "data.shape"
+          },
+          "id": "YfwFSUSW1k",
+          "meta": {
+            "category": "tensorFlow",
+            "description": "",
+            "label": "TensorFlow: Predict",
+            "name": "tensorflow-predict",
+            "x": 60,
+            "y": 440
+          },
+          "outputIds": [
+          ],
+          "type": "custom-data"
+        },
+        {
+          "config": {
+            "baudRateTemplate": "9600",
+            "dataBitsTemplate": "8",
+            "encodeTemplate": "utf8",
+            "parityTemplate": "none",
+            "pathTemplate": "/dev/ROBOT",
+            "resultPath": "serialResult",
+            "rtsctsTemplate": false,
+            "stopBitsTemplate": "1",
+            "writeTemplate": "hello/r"
+          },
+          "id": "0zBdnocuGo",
+          "meta": {
+            "category": "serial_write",
+            "description": "",
+            "label": "Serial: Write",
+            "name": "serial-write",
+            "x": 240,
+            "y": 440
+          },
+          "outputIds": [
+          ],
+          "type": "custom-data"
+        },
+        {
+          "config": {
+            "awsAccessKeyId": "{{data.accessKey}}",
+            "awsRegion": "us-west-2",
+            "awsSecretAccessKey": "{{data.secretAccessKey}}",
+            "errorBehavior": "throw",
+            "functionName": "myLambdaFunctionName",
+            "resultPath": "data.lambdaResult",
+            "sourceData": "",
+            "sourceMethod": "workflowPayload"
+          },
+          "id": "2GFPlCPYyU",
+          "meta": {
+            "category": "aws_lambda",
+            "description": "",
+            "label": "AWS Lambda",
+            "name": "aws-lambda",
+            "x": 420,
+            "y": 340
+          },
+          "outputIds": [
+          ],
+          "type": "custom-data"
+        },
+        {
+          "config": {
+            "areUnsignedInts": false,
+            "baudRateTemplate": "9600",
+            "connectionTypeTemplate": "serial",
+            "dataBitsTemplate": "8",
+            "destinationPath": "result.modbusData",
+            "endiannessTemplate": "big",
+            "parityTemplate": "none",
+            "pathTemplate": "/dev/ROBOT",
+            "readInstructions": [
+              {
+                "addressTemplate": "1",
+                "key": "myKey1",
+                "lengthTemplate": "1 ",
+                "typeTemplate": "input-register"
+              },
+              {
+                "addressTemplate": "2",
+                "key": "myKey2",
+                "lengthTemplate": "2",
+                "typeTemplate": "holding-register"
+              },
+              {
+                "addressTemplate": "3",
+                "key": "myKey3",
+                "lengthTemplate": "3",
+                "typeTemplate": "discrete-input"
+              },
+              {
+                "addressTemplate": "4",
+                "key": "mykey4",
+                "lengthTemplate": "4",
+                "typeTemplate": "coil"
+              },
+              {
+                "deviceIdCodeTemplate": "5",
+                "key": "mykey5",
+                "objectIdTemplate": "5",
+                "typeTemplate": "read-device-identification"
+              }
+            ],
+            "readInstructionsType": "array",
+            "stopBitsTemplate": "1",
+            "timeoutTemplate": "3000000",
+            "unitIdAllowZeros": true,
+            "unitIdTemplate": "1"
+          },
+          "id": "CjnJiDtLDH",
+          "meta": {
+            "category": "modbus_read",
+            "description": "",
+            "label": "Modbus: Read",
+            "name": "modbus-read",
+            "x": 420,
+            "y": 340
+          },
+          "outputIds": [
+          ],
+          "type": "custom-data"
+        },
+        {
+          "config": {
+            "seconds": 360
+          },
+          "id": "aacqBtcAcs",
+          "meta": {
+            "category":"timer",
+            "label": "Timer",
+            "timeAt": "",
+            "timerTypeSelect": "seconds",
+            "weekdays": [
+            ],
+            "x": -100,
+            "y": 300
+          },
+          "type": "custom-start"
+        },
+        {
+          "config": {
+            "script": "/*\n * payload variable contains current payload.\n * e.g. payload.data.myValue\n *\n * You can modify the current payload variable\n * or return an object that will entirely\n * replace the payload.\n *\n * console.log() will write a message to\n * the Debug tab.\n *\n * The Buffer object is available for\n * complex parsing: https://nodejs.org/dist/latest-v6.x/docs/api/buffer.html\n*/\nreturn {}"
+          },
+          "id": "cuU8lNjikY",
+          "meta": {
+            "category": "function",
+            "description": "",
+            "label": "Function",
+            "name": "function",
+            "x": 100,
+            "y": 200
+          },
+          "outputIds": [
+          ],
+          "type": "custom-rect"
+        },
+        {
+          "config": {
+            "integrationId": "local",
+            "messageTemplate": "{{container.jsonString}}",
+            "resultPath": "",
+            "topicTemplate": "{{data.topic}}"
+          },
+          "id": "pLec1UaRaD",
+          "meta": {
+            "category": "output_mqtt",
+            "description": "",
+            "label": "MQTT",
+            "name": "mqtt",
+            "x": 240,
+            "y": 420
+          },
+          "outputIds": [
+          ],
+          "type": "custom-end"
+        },
+        {
+          "config": {
+            "message": "hh",
+            "property": "data.foo"
+          },
+          "id": "P7QCIUH0BR",
+          "meta": {
+            "category": "debug",
+            "description": "",
+            "label": "Debug",
+            "name": "debug",
+            "x": 460,
+            "y": 400
+          },
+          "outputIds": [
+          ],
+          "type": "custom-end"
+        },
+        {
+          "config": {
+            "expression": "{{data.rpm}} >1000",
+            "payload": "{\n    \"rpm\":2000\n}"
+          },
+          "id": "0XuqsSyQuA",
+          "meta": {
+            "category":"choose",
+            "label": "可选过程",
+            "attrs": {
+                "body": {
+                  "rx": 6,
+                  "ry": 6
+                }
+            },
+            "x": 160,
+            "y": 300
+          },
+          "outputIds": [
+            [
+            ],
+            [
+              "n0cqBtcAdW"
+            ]
+          ],
+          "type": "custom-choose"
+        }
+      ]
+}

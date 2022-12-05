@@ -1,0 +1,108 @@
+@import '~antd/dist/antd.css';
+.app {
+  font-family: sans-serif;
+  padding: 0;
+  display: flex;
+  padding: 16px 8px;
+}
+.app-side {
+  width: 195px;
+  /* width: 215px; */
+  height: fit-content;
+  background-color: white;
+}
+.content {
+  background-color: white;
+}
+.app-content {
+  flex: 1;
+  height: 700px;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0 0 10px 1px #e9e9e9;
+}
+.x6-widget-stencil {
+  background-color: #fff;
+  position: relative;
+  /* width: 215px; */
+  width: 195px;
+  height: 700px;
+  overflow: auto;
+  box-shadow: 0 0 10px 1px #e9e9e9;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  padding-left: 16px;
+  padding-right: 32px;
+  background: #fafbfc;
+  border-bottom: 1px solid #dfe3e8;
+  position: relative;
+  color: rgba(0, 0, 0, 0.45);
+}
+.text {
+  font-size: 24px;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #fafbfc;
+  border-bottom: 1px solid #dfe3e8;
+}
+.content {
+  display: flex;
+  height: calc(100% - 105px);
+  position: relative;
+  overflow: auto;
+}
+.shapes {
+  position: relative;
+  width: 214px;
+  height: 100%;
+  border-right: 1px solid #dfe3e8;
+}
+.config {
+  box-sizing: border-box;
+  width: 290px;
+  height: 700px;
+  overflow: auto;
+  padding: 0 24px;
+  padding-bottom: 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+.minimap {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fafbfc;
+}
+/* .x6-widget-stencil-group-content {
+  height: 250px;
+  overflow: auto;
+} */
+
+.left-tab .ant-tabs-nav {
+  margin: 0 !important;
+}
+
+.ant-slider-track {
+  background-color: #1890ff !important;
+}
+.ant-slider-handle {
+  border: solid 2px #1890ff !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-top: -3px !important;
+}

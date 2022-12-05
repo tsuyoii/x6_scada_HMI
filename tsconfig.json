@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "strict": true,
+        "isolatedModules": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "strictPropertyInitialization": false,
+        "noEmit": false,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": false,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "noEmitOnError": true,
+        "noUnusedLocals": false,
+        "strictNullChecks": true,
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "target": "es5",
+        "lib": [
+            "DOM",
+            "ES2015"
+        ]
+    },
+    "include": ["src"]
+}

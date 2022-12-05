@@ -1,0 +1,19 @@
+.color-wraper {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 5px;
+  padding-bottom: 0;
+}
+.color {
+  border: none;
+  height: 23px;
+}
+.slider {
+  margin: 3px;
+  padding: 0;
+}
+.slider > .ant-slider-handle {
+  /* width: 10px;
+  height: 10px;
+  margin-top: -3px; */
+}
