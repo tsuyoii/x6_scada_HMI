@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunklot_scada=self.webpackChunklot_scada||[]).push([[494],{494:function(e,a,t){t.r(a),t.d(a,{FakeData:function(){return r}});var n=t(2791),s=t(184),r=function(e){var a=n.useState(JSON.parse(e.builder)),t=n.useState(e.cell);console.log(a[0],t[0].toJSON());var r=a[0];return(0,s.jsxs)("div",{children:["12345",r.name]})}}}]);
+//# sourceMappingURL=494.7bbf1440.chunk.js.map
