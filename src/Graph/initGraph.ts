@@ -4,7 +4,12 @@ import ReactDOM from "react-dom";
 export const initGraph = ()=> {
     const graph = new Graph({
         container: document.getElementById('container')!,
-        grid: true,
+        grid: {
+          size: 10,
+          type: 'mesh',
+          visible: true
+        },
+        // scroller: true,
         history:true,
         onToolItemCreated({ tool }) {
           const handle = tool as any
@@ -19,6 +24,14 @@ export const initGraph = ()=> {
           modifiers: "ctrl",
           minScale: 0.5,
           maxScale: 3
+        },
+        interacting: (view) => {
+            return !view.cell.prop('lock')
+        },
+        resizing: {
+          enabled: (node) => {
+            return !node.prop("lock");
+          }
         },
         connecting: {
           router: {
@@ -138,7 +151,6 @@ export const initGraph = ()=> {
             }
           }
         },
-        resizing: true,
         rotating: true,
         selecting: {
           enabled: true,

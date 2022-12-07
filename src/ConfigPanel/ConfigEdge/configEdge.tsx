@@ -54,6 +54,7 @@ export default function (props: IProps) {
       setAttrs({
         stroke: cell.attr('line2/stroke'),
         strokeWidth: cell.attr('line2/strokeWidth'),
+        animate: cell.attr('line2/style/animation'),
       });
     }
   }, [id]);
@@ -141,7 +142,8 @@ export default function (props: IProps) {
       </TabPane>
       <TabPane tab="动效" key="2">
         <Row align="middle">
-          <Col span={14} offset={6}>
+          <Col span={8}>动效</Col>
+          <Col span={12}>
             <Checkbox checked={attrs.animate} onChange={onAnimateChange}>
               开启动效
             </Checkbox>

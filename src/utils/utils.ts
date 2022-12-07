@@ -10,3 +10,13 @@ export const useDebounce = <T>(value:T,delay?:number)=> {
     },[value,delay])
     return debouncedValue
 }
+
+export const exportJSON = (data: object, filename:string) => {
+    let blob = new Blob([JSON.stringify(data, null, 2)],{type: 'application/json'});
+    let url = URL.createObjectURL(blob);
+    let linknode = document.createElement('a');
+    linknode.setAttribute('href',url);
+    linknode.setAttribute('download',`${filename}.json`);
+    linknode.click();
+    linknode.remove();
+}

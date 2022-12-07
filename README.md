@@ -2,13 +2,19 @@
 
 更轻松地构建面向客户的 IoT 应用程序
 
-![1-1](src/assets/1.png)
+![1-1](src/assets/2.png)
+
+# 在线体验
+
+[https://tsuyoii.github.io/x6_scada_HMI/](https://tsuyoii.github.io/x6_scada_HMI/)
 
 # 查看历史
 
 ![1-2](src/assets/githistory.png)
 
 # 下载使用
+
+#### 注意 ⚠️：目前还在开发中，暂未能实现传入数据或自定义等功能，预计下一版本实现，敬请期待
 
 ```
 npm install lot_scada
@@ -35,7 +41,7 @@ import 'lot_scada/dist/assets/css/main.css';
 
 ```
 
-修改版本号，修改 name 为 x6_scada（任意名字都行）
+修改版本号//version:0.0.5，修改 name 为 x6_scada（任意名字都行）
 yarn build
 npm publish
 
@@ -49,6 +55,7 @@ npm publish
         "src"
     ],
     删除"main": "./dist/index.js",
+    修改"version":    // "version": "0.0.6",
 ```
 
 修改 name 为 x6_scada_yalc（其实改成什么名字都行，与父项目中对应即可）
@@ -59,7 +66,7 @@ yalc push
 
 ```
 /*
- yalc调试版 => 在项目中修改package.json中的name为x6_scada_yalc, 第一次yalc publish, 第n次yalc push
+ yalc调试版 => 在项目中修改package.json中的name为x6_scada_yalc, 第一次yalc publish, 第n次yalc push, 父项目中第一次引入时需要用yalc add x6_scada_yalc(与上面publish的包名对应，上线之前记得remove包)
  *
  */
 
@@ -131,6 +138,27 @@ export const ScadaView = () => {
 # 更新
 
 - v0.0.3
-- - 右键菜单
-- - 取色器组件
-- - 流动动效
+
+  - 右键菜单
+    - 置顶
+    - 置底
+    - 上移一层
+    - 下移一层
+    - 组合
+    - 取消组合
+  - 取色器组件
+  - 流动动效
+
+- v0.0.6
+
+  - 顶部菜单栏
+    - 保存成 json 文件
+    - 导入 json 文件
+    - 撤销
+    - 重做
+    - 样式刷
+    - 放大缩小
+    - 自适应
+    - 居中
+    - 锁定
+    - 预览

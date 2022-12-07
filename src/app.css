@@ -39,7 +39,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 65px;
+  /* height: 65px; */
   padding-left: 16px;
   padding-right: 32px;
   background: #fafbfc;

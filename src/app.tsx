@@ -9,6 +9,7 @@ import { Tabs } from 'antd';
 import { ImgStencil } from './Graph/ImgStencil';
 import { initImgStencil, initSystemStencil } from './Graph/initStencil';
 import { ContextMenu } from './ContextMenu/contextMenu';
+import { Header } from './Header/Header';
 
 export default function App() {
   const apiUrl = process.env.REACT_APP_LOT_API_URL;
@@ -291,7 +292,7 @@ export default function App() {
     <div className={'wrap'}>
       <div className={'header'}>
         {/* <span className={'text'}>AISENZ</span> */}
-        {/* <Header/> */}
+        <Header />
       </div>
       <div className={'content'}>
         <Tabs
