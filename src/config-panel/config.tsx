@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useGridAttr } from '../models/global';
-import ConfigNode from './ConfigNode/configNode';
-import ConfigGrid from './ConfigGrid/configGrid';
-import ConfigEdge from './ConfigEdge/configEdge';
+import ConfigNode from './config-node/config-node';
+import ConfigGrid from './config-grid/config-grid';
+import ConfigEdge from './config-edge/config-edge';
 import { CONFIG_TYPE } from '../constant/enums';
 
 interface IProps {

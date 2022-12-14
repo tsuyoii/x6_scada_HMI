@@ -27,7 +27,7 @@ import {
 import FlowGraph from '../Graph';
 import { exportJSON } from '../utils/utils';
 
-export const Header = () => {
+export const Header = (props?: any) => {
   const { graph } = FlowGraph;
   const [initgraph, setGraph] = React.useState(graph);
   const [zoom, setZoom] = React.useState('100%');
@@ -64,7 +64,7 @@ export const Header = () => {
     });
   }, [copyStyle]);
 
-  const props: UploadProps = {
+  const upprops: UploadProps = {
     showUploadList: false,
     action: '',
     accept: '.json',
@@ -77,6 +77,10 @@ export const Header = () => {
   };
 
   const onSave = () => {
+    if (props?.onSave) {
+      props.onSave(graph?.toJSON());
+      return;
+    }
     exportJSON(graph?.toJSON(), `x6_scada_${new Date().getTime()}`);
   };
 
@@ -232,7 +236,7 @@ export const Header = () => {
             <SaveOutlined onClick={onSave} />
           </Tooltip>
           <Tooltip placement="bottom" title={'导入'}>
-            <Upload {...props}>
+            <Upload {...upprops}>
               <FolderOpenOutlined />
             </Upload>
           </Tooltip>

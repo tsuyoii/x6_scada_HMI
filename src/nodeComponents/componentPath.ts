@@ -1,4 +1,8 @@
 export const CATEGORY_PARAM:{[key:string]:any} = {
+  'chart': {
+    path:'chart/linechart-config',
+    param:{}
+  },
   'choose':{
     path:'example/nodeSet',
     param:{

@@ -15,8 +15,8 @@ export default function ColorPickerInput(props: any) {
   const [opacity, setOpacity] = React.useState(100);
 
   React.useEffect(() => {
-    setInternalColor(value.slice(0, 7));
-    let alpha = hexToOpacity(value.slice(7));
+    setInternalColor(value?.slice(0, 7) || 'transparent');
+    let alpha = hexToOpacity(value?.slice(7) || 100);
     setOpacity(alpha || alpha === 0 ? alpha : 100);
   }, [value]);
 

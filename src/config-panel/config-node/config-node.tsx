@@ -167,17 +167,19 @@ export default function (props: IProps) {
       </TabPane>
       <TabPane tab="设置" key="3">
         <Space direction="vertical">
-          <Row>
-            <Col span={8}>标签</Col>
-          </Row>
-          <Row>
-            <Input
-              placeholder="标签内容"
-              value={nodeLabel}
-              onChange={onNodeLabelChange}
-            />
-          </Row>
-          {NodeSet}
+          <>
+            <Row>
+              <Col span={8}>标签</Col>
+            </Row>
+            <Row>
+              <Input
+                placeholder="标签内容"
+                value={nodeLabel}
+                onChange={onNodeLabelChange}
+              />
+            </Row>
+            {NodeSet}
+          </>
         </Space>
       </TabPane>
     </Tabs>

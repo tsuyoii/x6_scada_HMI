@@ -41,7 +41,7 @@ import 'lot_scada/dist/assets/css/main.css';
 
 ```
 
-修改版本号//version:0.0.5，修改 name 为 x6_scada（任意名字都行）
+修改版本号//version:0.0.7，修改 name 为 x6_scada（任意名字都行）
 yarn build
 npm publish
 
@@ -55,12 +55,13 @@ npm publish
         "src"
     ],
     删除"main": "./dist/index.js",
-    修改"version":    // "version": "0.0.6",
+    修改"version":    // "version": "0.0.7",
 ```
 
 修改 name 为 x6_scada_yalc（其实改成什么名字都行，与父项目中对应即可）
 yarn build
 yalc push
+父项目中如果报错 rootDir 有问题，需要把父项目中 tsconfig.json 的 rootDir 注释掉，另，yalc 调试时父项目中需要安装@antv/x6-react-shape ^1.6.1 版本
 
 # 父项目中使用实例
 
@@ -94,8 +95,8 @@ export const ScadaView = () => {
 //npm 版
 import * as React from 'react';
 /* ok */
-import XScadas from 'x6_scada/dist';
-import 'x6_scada/dist/assets/css/main.css';
+import XScadas from 'lot_scada/dist';
+import 'lot_scada/dist/assets/css/main.css';
 
 export const ScadaView = () => {
   return (
@@ -162,3 +163,12 @@ export const ScadaView = () => {
     - 居中
     - 锁定
     - 预览
+
+- v0.0.7
+
+  - 新增图表节点 📈
+  - 插件可传入 data 数据和保存数据的方法 onSave, 也可以不传
+
+  ```
+    <XScadas data={data} onSave={(jsonData)=>{console.log(jsonData)}}/>
+  ```

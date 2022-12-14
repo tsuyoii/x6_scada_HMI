@@ -1,6 +1,7 @@
 import { Addon, Graph, Shape } from "@antv/x6"
 import './shape'
 import { ports } from "./shape"
+import '@antv/x6-react-shape';
 
 export const initStencil = (graph:Graph,groups?:any) => {
     const stencil = new Addon.Stencil({
@@ -20,6 +21,24 @@ export const initStencil = (graph:Graph,groups?:any) => {
         },
         // 设置拖入画布时图片的大小
         getDropNode(node) {
+            if(node.getProp('dragnode')){
+              return graph.addNode({
+                width: 300,
+                height: 150,
+                attrs: {
+                  label: {
+                    text:'标题',
+                    refX: '10px',
+                    refY: '-15px',
+                  }
+                },
+                shape: 'react-shape',
+                component: node.getProp('dragnode'),
+                meta: {
+                  category: 'chart'
+                },
+              })
+            }
             const size = node.size()
             // return node.clone().size(size.width * 0.6, size.height * 1)
             return node.clone().size(size.width * 2, size.height * 2)
@@ -146,6 +165,19 @@ export const initSystemStencil = (graph:Graph) => {
       },
       ports: { ...ports },
     })
+
+// 图表
+const rt = graph.createNode({
+  shape: 'ais-chart',
+  width:40,
+  height:40,
+  label:'ais-chart',
+  // attrs: {
+  //   body: {
+  //     fill: 'red'
+  //   }
+  // }
+})
 
   // 开始
   const r1 = graph.createNode({
@@ -471,7 +503,7 @@ export const initSystemStencil = (graph:Graph) => {
   
   const stencilContainer = document.querySelector('#stencil');
   if (stencilContainer && !stencilContainer.hasChildNodes()) {
-    stencil.load([r0_1, r0_2,r0_3,r0_4,r0_5,r0_7,r0_6], 'group0');
+    stencil.load([r0_1, r0_2,r0_3,r0_4,r0_5,r0_7,r0_6, rt], 'group0');
     stencil.load([r1_1, r1_2, r1_3, r1_4], 'group1');
     stencil.load([r2_1], 'group2');
     stencil.load([r3_1, r3_2, r3_3, r3_4, r3_5], 'group3');

@@ -3,15 +3,15 @@ import * as React from 'react';
 import FlowGraph from './Graph';
 import './app.css';
 import { Cell, Graph } from '@antv/x6';
-import Config from './ConfigPanel/config';
+import Config from './config-panel/config';
 import { CONFIG_TYPE } from './constant/enums';
 import { Tabs } from 'antd';
 import { ImgStencil } from './Graph/ImgStencil';
 import { initImgStencil, initSystemStencil } from './Graph/initStencil';
-import { ContextMenu } from './ContextMenu/contextMenu';
+import { ContextMenu } from './context-menu/context-menu';
 import { Header } from './Header/Header';
 
-export default function App() {
+export default function App(props?: any) {
   const apiUrl = process.env.REACT_APP_LOT_API_URL;
   console.log(apiUrl);
 
@@ -31,8 +31,14 @@ export default function App() {
   React.useEffect(() => {
     const { graph } = FlowGraph.init();
     // setIsReady(true)
-    fetchData(graph);
-    graph.on('blank:click', () => {
+    // fetchData(graph);
+
+    if (props && props.data) {
+      graph?.fromJSON(props?.data);
+      graph?.zoomToFit({ padding: 10, maxScale: 1 });
+    }
+
+    graph?.on('blank:click', () => {
       setType(CONFIG_TYPE.GRID);
 
       //将x6画布中绘制的data转换一下数据结构
@@ -87,7 +93,7 @@ export default function App() {
       });
       console.log(output, arr);
     });
-    graph.on('cell:click', ({ cell }) => {
+    graph?.on('cell:click', ({ cell }) => {
       const data = cell.toJSON();
       setType(cell.isNode() ? CONFIG_TYPE.NODE : CONFIG_TYPE.EDGE);
       setID(cell.id);
@@ -97,7 +103,7 @@ export default function App() {
 
     const resizeFn = () => {
       const { width, height } = getContainerSize();
-      graph.resize(width, height);
+      graph?.resize(width, height);
     };
     resizeFn();
 
@@ -106,6 +112,14 @@ export default function App() {
       window.removeEventListener('resize', resizeFn);
     };
   }, []);
+
+  React.useEffect(() => {
+    if (props && props.data) {
+      const { graph } = FlowGraph;
+      graph?.fromJSON(props?.data);
+      graph?.zoomToFit({ padding: 10, maxScale: 1 });
+    }
+  }, [props?.data]);
 
   const onTabsChange = (key: string) => {
     const { graph } = FlowGraph;
@@ -291,8 +305,8 @@ export default function App() {
   return (
     <div className={'wrap'}>
       <div className={'header'}>
-        {/* <span className={'text'}>AISENZ</span> */}
-        <Header />
+        {/* <span className={'text'}>AIS</span> */}
+        <Header onSave={props?.onSave} />
       </div>
       <div className={'content'}>
         <Tabs
