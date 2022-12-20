@@ -2,7 +2,7 @@ import { Edge } from '@antv/x6';
 import { Checkbox, Col, Input, Row, Slider, Tabs } from 'antd';
 import * as React from 'react';
 import ColorPickerInput from '../../common/color-picker/color-picker';
-import FlowGraph from '../../Graph';
+import FlowGraph from '../../graph';
 import '../../index.css';
 
 const { TabPane } = Tabs;

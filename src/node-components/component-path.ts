@@ -4,61 +4,61 @@ export const CATEGORY_PARAM:{[key:string]:any} = {
     param:{}
   },
   'choose':{
-    path:'example/nodeSet',
+    path:'example/node-set',
     param:{
       id:'www',
       name:'itachi'
     }
   },
   'timer':{
-    path:'triggers/timerComponent',
+    path:'triggers/timer-component',
     param: {
       id:'hh',
       name:'弟弟'
     }
   },
   'trigger_mqtt':{
-    path:'triggers/mqttComponent',
+    path:'triggers/mqtt-component',
     param:{}
   },
   'serial':{
-    path:'triggers/serialComponent',
+    path:'triggers/serial-component',
     param:{}
   },
   'function':{
-    path:'logic/functionComponent',
+    path:'logic/function-component',
     param:{}
   },
   'runExec':{
-    path:'data/runExecutComponent',
+    path:'data/runexecut-component',
     param:{}
   },
   'tensorFlow':{
-    path:'data/tensorFlowComponent',
+    path:'data/tensorflow-component',
     param:{}
   },
   'serial_write':{
-    path:'data/serialWriteComponent',
+    path:'data/serialwrite-component',
     param:{}
   },
   'aws_lambda':{
-    path:'data/awsLambdaComponent',
+    path:'data/awslambda-component',
     param:{}
   },
   'modbus_read':{
-    path:'data/modbusReadComponent',
+    path:'data/modbusread-component',
     param:{}
   },
   'output_mqtt':{
-    path:'output/mqttComponent',
+    path:'output/mqtt-component',
     param:{}
   },
   'http':{
-    path:'output/httpComponent',
+    path:'output/http-component',
     param:{}
   },
   'debug':{
-    path:'output/debugComponent',
+    path:'output/debug-component',
     param:{}
   }
 }

@@ -24,7 +24,7 @@ import {
   Upload,
   UploadProps,
 } from 'antd';
-import FlowGraph from '../Graph';
+import FlowGraph from '../graph';
 import { exportJSON } from '../utils/utils';
 
 export const Header = (props?: any) => {

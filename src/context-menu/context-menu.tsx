@@ -16,9 +16,9 @@ import {
 } from '@ant-design/icons';
 import { message } from 'antd';
 import '@antv/x6-react-components/es/menu/style/index.css';
-import FlowGraph from '../Graph';
+import FlowGraph from '../graph';
 import { Cell, Shape } from '@antv/x6';
-import { ports } from '../Graph/shape';
+import { ports } from '../graph/shape';
 
 const MenuItem = Menu.Item;
 const Divider = Menu.Divider;

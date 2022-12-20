@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Tabs, Row, Col, Input, Slider, Space } from 'antd';
 import { Cell } from '@antv/x6';
-import FlowGraph from '../../Graph';
-import { useAsyncComponent } from '../../asyncComponent';
-import { CATEGORY_PARAM } from '../../nodeComponents/componentPath';
+import FlowGraph from '../../graph';
+import { useAsyncComponent } from '../../async-component';
+import { CATEGORY_PARAM } from '../../node-components/component-path';
 import ColorPickerInput from '../../common/color-picker/color-picker';
 
 const { TabPane } = Tabs;

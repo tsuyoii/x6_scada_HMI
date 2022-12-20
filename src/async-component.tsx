@@ -1,6 +1,7 @@
 import { Cell } from '@antv/x6';
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
+
 export const useAsyncComponent = (
   path: string,
   id: string,
@@ -11,8 +12,11 @@ export const useAsyncComponent = (
   const [dynamic_Components, set_Dynamic_Components] =
     React.useState<React.FC>();
   React.useEffect(() => {
+    console.log(routerParams, 'path');
     if (path) {
-      import(`./nodeComponents/${path}`).then((module) => {
+      import(
+        /* webpackChunkName: "[request]" */ `./node-components/${path}`
+      ).then((module) => {
         let Component = module.FakeData;
         const formatModule: React.FC = () => {
           // return <div><Component builder={routerParams.type}/></div>;

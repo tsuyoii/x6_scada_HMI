@@ -1,15 +1,15 @@
 // import React, { useState, useEffect } from 'react';
 import * as React from 'react';
-import FlowGraph from './Graph';
+import FlowGraph from './graph';
 import './app.css';
 import { Cell, Graph } from '@antv/x6';
 import Config from './config-panel/config';
 import { CONFIG_TYPE } from './constant/enums';
 import { Tabs } from 'antd';
-import { ImgStencil } from './Graph/ImgStencil';
-import { initImgStencil, initSystemStencil } from './Graph/initStencil';
+import { ImgStencil } from './graph/img-stencil';
+import { initImgStencil, initSystemStencil } from './graph/init-stencil';
 import { ContextMenu } from './context-menu/context-menu';
-import { Header } from './Header/Header';
+import { Header } from './header/header';
 
 export default function App(props?: any) {
   const apiUrl = process.env.REACT_APP_LOT_API_URL;

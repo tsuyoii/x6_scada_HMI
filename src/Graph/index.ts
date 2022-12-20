@@ -1,6 +1,6 @@
 import { Addon, Graph } from "@antv/x6";
-import { initGraph } from "./initGraph";
-import { initImgStencil, initStencil, initSystemStencil } from "./initStencil";
+import { initGraph } from "./init-graph";
+import { initImgStencil, initStencil, initSystemStencil } from "./init-stencil";
 
 export default class FlowGraph {
     public static graph:Graph;

@@ -10,7 +10,7 @@ import {
   Divider,
   Space,
 } from 'antd';
-import FlowGraph from '../../Graph';
+import FlowGraph from '../../graph';
 import ColorPickerInput from '../../common/color-picker/color-picker';
 
 const { TabPane } = Tabs;
