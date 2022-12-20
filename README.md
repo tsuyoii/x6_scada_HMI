@@ -41,9 +41,23 @@ import 'lot_scada/dist/assets/css/main.css';
 
 ```
 
-修改版本号//version:0.0.7，修改 name 为 x6_scada（任意名字都行）
+修改版本号//version:0.0.8，修改 name 为 lot_scada（任意名字都行）
 yarn build
 npm publish
+
+<!-- 注意发布时不要包含node_modules,否则会因为多个react版本而报错 -->
+
+<!-- 发布npm包之前可以先调试一下 -->
+
+#### 小技巧————调试 npm 包
+
+```
+yarn build
+npm pack
+将生成的压缩包解压生成 package,package 中的内容即为将要发布到 npm 上的包的内容
+可以将 package 改名为 lot_scada
+然后拷贝到父项目的 node_modules 中即可引用
+```
 
 ## 发布 yalc
 
@@ -81,8 +95,8 @@ export const ScadaView = () => {
 };
 
 // dist版本，但是每次要子项目build之后修改才会生效，这里不用dist版本了
-// import App from 'x6_scada_yalc/dist'; //ok
-// import 'x6_scada_yalc/dist/assets/css/main.css';
+// import App from 'lot_scada_yalc/dist'; //ok
+// import 'lot_scada_yalc/dist/assets/css/main.css';
 //export const ScadaView = () => {
 //  return (
 //    <App />
@@ -110,18 +124,18 @@ export const ScadaView = () => {
 // 试验过程，参考即可
 // import { useState, useEffect } from 'react';
 import * as React from 'react';
-// import { XScada } from 'x6_scada/dist/index';
-// import * as XScada from 'x6_scada';
+// import { XScada } from 'lot_scada/dist/index';
+// import * as XScada from 'lot_scada';
 
-// import XScada from 'x6_scada_yalc/src/lib/index';//报错
+// import XScada from 'lot_scada_yalc/src/lib/index';//报错
 
-// import XScadas from 'x6_scada_yalc/src/app'; //ok
-// import App from 'x6_scada_yalc/src/app'; //ok
-// import App from 'x6_scada_yalc/dist'; //ok
+// import XScadas from 'lot_scada_yalc/src/app'; //ok
+// import App from 'lot_scada_yalc/src/app'; //ok
+// import App from 'lot_scada_yalc/dist'; //ok
 
 /* ok */
-import XScadas from 'x6_scada/dist';
-import 'x6_scada/dist/assets/css/main.css';
+import XScadas from 'lot_scada/dist';
+import 'lot_scada/dist/assets/css/main.css';
 
 export const ScadaView = () => {
   // const [scada, setScada] = React.useState(x6_scada.x6_scada.XScada);
@@ -172,3 +186,24 @@ export const ScadaView = () => {
   ```
     <XScadas data={data} onSave={(jsonData)=>{console.log(jsonData)}}/>
   ```
+
+- v0.0.8
+
+  - 修复点击画布上某些节点(如图表节点时，进入设置项报错 bug)
+
+# 关于报错
+
+1. 无法正常拖入节点或报错 findDOMNode is deprecated in StrictMode.
+
+- 解答：将 index.tsx 中的这两行严格模式删掉
+  (⚠️ 注：删除严格模式并非好的做法，但目前暂未找到更好的方法，下一版尽量更新)
+  ![1-3](src/assets/error1.png)
+- 参考：https://blog.csdn.net/qq_40314318/article/details/105209873
+
+2. 报错 Invalid hook call
+
+```
+Uncaught Error: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons: 1. You might have mismatching versions of React and the renderer (such as React DOM) 2. You might be breaking the Rules of Hooks 3. You might have more than one copy of React in the same app
+```
+
+- 解答：查看 lot_scada 包下是否有自己的 node_modules，有的话删除 node_modules 并重启项目即可

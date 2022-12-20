@@ -6,7 +6,9 @@ module.exports = {
   entry: path.resolve(__dirname, './src/app.tsx'), //指定打包入口文件
   output: {
     filename: 'index.js', //打包后的文件名
+    // chunkFilename: '[name].[hash:8].js', //动态import文件名,
     path: path.resolve(__dirname, './dist'), //输出路径
+    chunkLoading: false, //不分包，将所有chunk合并到一个主包，假的懒加载
     // libraryTarget: 'commonjs2', //指定类型，默认是var ?//意思是把我们的输出作为react组件
     // library: 'x6_scada',
     library: {
@@ -88,5 +90,15 @@ module.exports = {
       // both options are optional
       filename: 'assets/css/[name].css',
     }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       // context: 'node_modules/x6_scada/dist', //作用域，  注意：x6_scada/dist要改成你自己的
+    //       from: 'src/*', //检测的文件
+    //       to: 'js/', //复制的目的地
+    //       toType: 'dir', //目的地类型
+    //     },
+    //   ],
+    // }),
   ],
 };

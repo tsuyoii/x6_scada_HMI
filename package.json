@@ -1,7 +1,7 @@
 {
     "name": "lot_scada",
     "author": "koreol",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "license": "MIT",
     "private": false,
     "homepage": "https://tsuyoii.github.io/x6_scada_HMI/",
@@ -45,7 +45,7 @@
     ],
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "rm -rf dist && webpack --config webpack.prod.config.js",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
