@@ -191,6 +191,10 @@ export const ScadaView = () => {
 
   - 修复点击画布上某些节点(如图表节点时，进入设置项报错 bug)
 
+- v0.0.9
+
+  - 修复初始节点数据无法展示 bug(如图表节点 => 自定义节点保存 toJSON 有问题，目前已修复)
+
 # 关于报错
 
 1. 无法正常拖入节点或报错 findDOMNode is deprecated in StrictMode.

@@ -1,0 +1,291 @@
+{
+  "cells": [
+      {
+          "position": {
+              "x": 100,
+              "y": 90
+          },
+          "size": {
+              "width": 80,
+              "height": 40
+          },
+          "attrs": {
+              "body": {
+                  "fill": "transparent",
+                  "strokeWidth": 1,
+                  "stroke": "#222222",
+                  "rx": 5,
+                  "ry": 5
+              }
+          },
+          "visible": true,
+          "shape": "rect",
+          "id": "bdc081b1-efb5-42a5-b758-591e525343a1",
+          "zIndex": 1,
+          "ports": {
+              "groups": {
+                  "top": {
+                      "position": "top",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  },
+                  "right": {
+                      "position": "right",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  },
+                  "bottom": {
+                      "position": "bottom",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  },
+                  "left": {
+                      "position": "left",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  }
+              },
+              "items": [
+                  {
+                      "id": "top",
+                      "group": "top"
+                  },
+                  {
+                      "id": "right",
+                      "group": "right"
+                  },
+                  {
+                      "id": "bottom",
+                      "group": "bottom"
+                  },
+                  {
+                      "id": "left",
+                      "group": "left"
+                  }
+              ]
+          }
+      },
+      {
+          "position": {
+              "x": -260,
+              "y": 130
+          },
+          "size": {
+              "width": 220,
+              "height": 76
+          },
+          "attrs": {
+              "text": {
+                  "text": "⏱️ Timer"
+              }
+          },
+          "visible": true,
+          "shape": "custom-start",
+          "ports": {
+              "groups": {
+                  "top": {
+                      "position": "top",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  },
+                  "right": {
+                      "position": "right",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  },
+                  "bottom": {
+                      "position": "bottom",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  },
+                  "left": {
+                      "position": "left",
+                      "attrs": {
+                          "circle": {
+                              "r": 4,
+                              "magnet": true,
+                              "stroke": "#5F95FF",
+                              "strokeWidth": 1,
+                              "fill": "#fff",
+                              "style": {
+                                  "visibility": "hidden"
+                              }
+                          }
+                      }
+                  }
+              },
+              "items": [
+                  {
+                      "id": "bottom",
+                      "group": "bottom"
+                  }
+              ]
+          },
+          "id": "79fe1b83-e285-4068-97e2-6afbf8cadb24",
+          "config": {
+              "seconds": 60
+          },
+          "meta": {
+              "category": "timer",
+              "timeAt": "",
+              "timerTypeSelect": "seconds",
+              "weekdays": []
+          },
+          "zIndex": 1
+      },
+      {
+          "position": {
+              "x": -281,
+              "y": 351
+          },
+          "size": {
+              "width": 300,
+              "height": 150
+          },
+          "view": "react-shape-view",
+          "attrs": {
+              "label": {
+                  "refX": "10px",
+                  "refY": "-15px",
+                  "text": "标题"
+              }
+          },
+          "shape": "ais-chart",
+          "component": {
+              "key": null,
+              "ref": null,
+              "props": {},
+              "_owner": null,
+              "_store": {}
+          },
+          "dragnode": {
+              "type": {},
+              "key": null,
+              "ref": null,
+              "props": {
+                  "style": {
+                      "fontSize": "40px"
+                  }
+              },
+              "_owner": null,
+              "_store": {}
+          },
+          "id": "76001a71-fbeb-4778-b03f-339e7b19de4f",
+          "meta": {
+              "category": "ais-chart"
+          }
+      },
+      {
+          "position": {
+              "x": -270,
+              "y": -90
+          },
+          "size": {
+              "width": 300,
+              "height": 150
+          },
+          "view": "react-shape-view",
+          "attrs": {
+              "label": {
+                  "refX": "10px",
+                  "refY": "-15px",
+                  "text": "标题"
+              }
+          },
+          "shape": "ais-chart",
+          "component": {
+              "key": null,
+              "ref": null,
+              "props": {},
+              "_owner": null,
+              "_store": {}
+          },
+          "dragnode": {
+              "type": {},
+              "key": null,
+              "ref": null,
+              "props": {
+                  "style": {
+                      "fontSize": "40px"
+                  }
+              },
+              "_owner": null,
+              "_store": {}
+          },
+          "id": "1f9e5d79-8e9a-4e81-996f-f8af99cb4f75",
+          "meta": {
+              "category": "ais-chart"
+          }
+      }
+  ]
+}

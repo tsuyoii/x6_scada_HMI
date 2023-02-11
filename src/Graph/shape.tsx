@@ -539,12 +539,8 @@ Graph.registerNode(
     inherit: 'react-shape',
     width: 40,
     height: 40,
-    component: (
-      <div>
-        <LineChartOutlined style={{ fontSize: '40px' }} />
-      </div>
-    ),
-    dragnode: <LineChart />,
+    component: <LineChart />,
+    dragnode: <LineChartOutlined style={{ fontSize: '40px' }} />,
   },
   true
 );

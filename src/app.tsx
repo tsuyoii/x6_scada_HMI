@@ -135,7 +135,7 @@ export default function App(props?: any) {
   };
 
   const fetchData = (graph: Graph) => {
-    fetch(`${apiUrl}/mockdata/data1.json`, {
+    fetch(`/mockdata/data.json`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -154,150 +154,151 @@ export default function App(props?: any) {
         // graph.resetCells(cells);
         // graph.zoomToFit({ padding: 10, maxScale: 1 });
 
-        const cells: Cell[] = [];
-        data.nodes.forEach((item: any) => {
-          if (item.outputIds?.length) {
-            item.outputIds[0].forEach((out: any) => {
-              cells.push(
-                graph.createEdge({
-                  shape: 'edge',
-                  markup: [
-                    {
-                      tagName: 'path',
-                      selector: 'wrap',
-                      groupSelector: 'lines',
-                    },
-                    {
-                      tagName: 'path',
-                      selector: 'line1',
-                      groupSelector: 'lines',
-                    },
-                    {
-                      tagName: 'path',
-                      selector: 'line2',
-                      groupSelector: 'lines',
-                    },
-                  ],
-                  attrs: {
-                    lines: {
-                      connection: true,
-                      fill: 'none',
-                      targetMarker: null,
-                      strokeWidth: 2,
-                      // strokeDasharray: '8',
-                      // strokeLinejoin: 'round',
-                    },
-                    line1: {
-                      stroke: '#ffffff',
-                      targetMarker: null,
-                      strokeWidth: 2,
-                    },
-                    line2: {
-                      stroke: '#A2B1C3',
-                      strokeWidth: 2,
-                      strokeDashoffset: 8,
-                      targetMarker: null,
-                    },
-                  },
-                  tools: {
-                    name: 'segments',
-                    args: {
-                      snapRadius: 20,
-                      attrs: {
-                        fill: '#444',
-                      },
-                    },
-                  },
-                  source: {
-                    cell: `${item.id}`,
-                    port: 'bottom-left',
-                  },
-                  target: {
-                    cell: `${out}`,
-                    connectionPoint: 'boundary',
-                  },
-                })
-              );
-            });
-            item.outputIds[1]?.forEach((out: any) => {
-              cells.push(
-                graph.createEdge({
-                  shape: 'edge',
-                  markup: [
-                    {
-                      tagName: 'path',
-                      selector: 'wrap',
-                      groupSelector: 'lines',
-                    },
-                    {
-                      tagName: 'path',
-                      selector: 'line1',
-                      groupSelector: 'lines',
-                    },
-                    {
-                      tagName: 'path',
-                      selector: 'line2',
-                      groupSelector: 'lines',
-                    },
-                  ],
-                  attrs: {
-                    lines: {
-                      connection: true,
-                      fill: 'none',
-                      targetMarker: null,
-                      strokeWidth: 2,
-                      // strokeDasharray: '8',
-                      // strokeLinejoin: 'round',
-                    },
-                    line1: {
-                      stroke: '#ffffff',
-                      targetMarker: null,
-                      strokeWidth: 2,
-                    },
-                    line2: {
-                      stroke: '#A2B1C3',
-                      strokeWidth: 2,
-                      strokeDashoffset: 8,
-                      targetMarker: null,
-                    },
-                  },
-                  tools: {
-                    name: 'segments',
-                    args: {
-                      snapRadius: 20,
-                      attrs: {
-                        fill: '#444',
-                      },
-                    },
-                  },
-                  source: {
-                    cell: `${item.id}`,
-                    port: 'bottom-right',
-                  },
-                  target: {
-                    cell: `${out}`,
-                    connectionPoint: 'boundary',
-                  },
-                })
-              );
-            });
-          }
-          const node = {
-            id: item.id,
-            label: item.meta.label,
-            attrs: { ...item.meta.attrs },
-            shape: item.type,
-            category: item.meta.category,
-            config: { ...item.config },
-            outputIds: { ...item.outputIds },
-            position: {
-              x: item.meta.x,
-              y: item.meta.y,
-            },
-          };
-          cells.push(graph.createNode(node));
-        });
-        graph.resetCells(cells);
+        // const cells: Cell[] = [];
+        // data.nodes.forEach((item: any) => {
+        //   if (item.outputIds?.length) {
+        //     item.outputIds[0].forEach((out: any) => {
+        //       cells.push(
+        //         graph.createEdge({
+        //           shape: 'edge',
+        //           markup: [
+        //             {
+        //               tagName: 'path',
+        //               selector: 'wrap',
+        //               groupSelector: 'lines',
+        //             },
+        //             {
+        //               tagName: 'path',
+        //               selector: 'line1',
+        //               groupSelector: 'lines',
+        //             },
+        //             {
+        //               tagName: 'path',
+        //               selector: 'line2',
+        //               groupSelector: 'lines',
+        //             },
+        //           ],
+        //           attrs: {
+        //             lines: {
+        //               connection: true,
+        //               fill: 'none',
+        //               targetMarker: null,
+        //               strokeWidth: 2,
+        //               // strokeDasharray: '8',
+        //               // strokeLinejoin: 'round',
+        //             },
+        //             line1: {
+        //               stroke: '#ffffff',
+        //               targetMarker: null,
+        //               strokeWidth: 2,
+        //             },
+        //             line2: {
+        //               stroke: '#A2B1C3',
+        //               strokeWidth: 2,
+        //               strokeDashoffset: 8,
+        //               targetMarker: null,
+        //             },
+        //           },
+        //           tools: {
+        //             name: 'segments',
+        //             args: {
+        //               snapRadius: 20,
+        //               attrs: {
+        //                 fill: '#444',
+        //               },
+        //             },
+        //           },
+        //           source: {
+        //             cell: `${item.id}`,
+        //             port: 'bottom-left',
+        //           },
+        //           target: {
+        //             cell: `${out}`,
+        //             connectionPoint: 'boundary',
+        //           },
+        //         })
+        //       );
+        //     });
+        //     item.outputIds[1]?.forEach((out: any) => {
+        //       cells.push(
+        //         graph.createEdge({
+        //           shape: 'edge',
+        //           markup: [
+        //             {
+        //               tagName: 'path',
+        //               selector: 'wrap',
+        //               groupSelector: 'lines',
+        //             },
+        //             {
+        //               tagName: 'path',
+        //               selector: 'line1',
+        //               groupSelector: 'lines',
+        //             },
+        //             {
+        //               tagName: 'path',
+        //               selector: 'line2',
+        //               groupSelector: 'lines',
+        //             },
+        //           ],
+        //           attrs: {
+        //             lines: {
+        //               connection: true,
+        //               fill: 'none',
+        //               targetMarker: null,
+        //               strokeWidth: 2,
+        //               // strokeDasharray: '8',
+        //               // strokeLinejoin: 'round',
+        //             },
+        //             line1: {
+        //               stroke: '#ffffff',
+        //               targetMarker: null,
+        //               strokeWidth: 2,
+        //             },
+        //             line2: {
+        //               stroke: '#A2B1C3',
+        //               strokeWidth: 2,
+        //               strokeDashoffset: 8,
+        //               targetMarker: null,
+        //             },
+        //           },
+        //           tools: {
+        //             name: 'segments',
+        //             args: {
+        //               snapRadius: 20,
+        //               attrs: {
+        //                 fill: '#444',
+        //               },
+        //             },
+        //           },
+        //           source: {
+        //             cell: `${item.id}`,
+        //             port: 'bottom-right',
+        //           },
+        //           target: {
+        //             cell: `${out}`,
+        //             connectionPoint: 'boundary',
+        //           },
+        //         })
+        //       );
+        //     });
+        //   }
+        //   const node = {
+        //     id: item.id,
+        //     label: item.meta.label,
+        //     attrs: { ...item.meta.attrs },
+        //     shape: item.type,
+        //     category: item.meta.category,
+        //     config: { ...item.config },
+        //     outputIds: { ...item.outputIds },
+        //     position: {
+        //       x: item.meta.x,
+        //       y: item.meta.y,
+        //     },
+        //   };
+        //   cells.push(graph.createNode(node));
+        // });
+        // graph.resetCells(cells);
+        graph.fromJSON(data);
         graph.zoomToFit({ padding: 10, maxScale: 1 });
       });
   };

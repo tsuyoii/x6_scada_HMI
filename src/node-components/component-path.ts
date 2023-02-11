@@ -1,5 +1,5 @@
 export const CATEGORY_PARAM:{[key:string]:any} = {
-  'chart': {
+  'ais-chart': {
     path:'chart/linechart-config',
     param:{}
   },
